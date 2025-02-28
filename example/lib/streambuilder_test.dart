@@ -77,7 +77,7 @@ class _StreamTestWidgetState extends State<StreamTestWidget> {
               value: _value,
               label: _label,
               activeColor: Colors.blue,
-              inactiveColor: Colors.blue.withOpacity(0.2),
+              inactiveColor: Color.fromRGBO(33, 150, 243, 0.2),
               onChanged: (double value) => changed(value),
             ),
           ),
