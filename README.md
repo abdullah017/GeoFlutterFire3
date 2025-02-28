@@ -1,6 +1,6 @@
 # GeoFlutterFire3 :earth_africa:
 
-**NB! `GeoFlutterFire3` is the revisited & updated version of [GeoFlutterFire3](https://github.com/beerstorm-net/GeoFlutterFire2)**  
+**NB! `GeoFlutterFire3` is the revisited & updated version of [GeoFlutterFire2](https://github.com/beerstorm-net/GeoFlutterFire2)**  
 
 GeoFlutterFire is an open-source library that allows you to store and query a set of keys based on their geographic location. At its heart, GeoFlutterFire simply stores locations with string keys. Its main benefit, however, is the possibility of retrieving only those keys within a given geographic area - all in realtime.
 
