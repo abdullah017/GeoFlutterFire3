@@ -23,13 +23,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  GoogleMapController _mapController;
-  TextEditingController _latitudeController, _longitudeController;
+  GoogleMapController? _mapController;
+  TextEditingController? _latitudeController, _longitudeController;
 
   // firestore init
   final _firestore = FirebaseFirestore.instance;
-  GeoFlutterFire geo;
-  Stream<List<DocumentSnapshot>> stream;
+  GeoFlutterFire? geo;
+  Stream<List<DocumentSnapshot>>? stream;
   final radius = BehaviorSubject<double>.seeded(1.0);
   Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
 
@@ -40,11 +40,11 @@ class _MyAppState extends State<MyApp> {
     _longitudeController = TextEditingController();
 
     geo = GeoFlutterFire();
-    GeoFirePoint center = geo.point(latitude: 12.960632, longitude: 77.641603);
+    GeoFirePoint center = geo!.point(latitude: 12.960632, longitude: 77.641603);
     stream = radius.switchMap((rad) {
       var collectionReference = _firestore.collection('locations');
 //          .where('name', isEqualTo: 'darshan');
-      return geo.collection(collectionRef: collectionReference).within(
+      return geo!.collection(collectionRef: collectionReference).within(
           center: center, radius: rad, field: 'position', strictMode: true);
 
       /*
@@ -61,8 +61,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void dispose() {
-    _latitudeController.dispose();
-    _longitudeController.dispose();
+    _latitudeController!.dispose();
+    _longitudeController!.dispose();
     radius.close();
     super.dispose();
   }
@@ -159,8 +159,8 @@ class _MyAppState extends State<MyApp> {
                   MaterialButton(
                     color: Colors.blue,
                     onPressed: () {
-                      final lat = double.parse(_latitudeController.text);
-                      final lng = double.parse(_longitudeController.text);
+                      final lat = double.parse(_latitudeController!.text);
+                      final lng = double.parse(_longitudeController!.text);
                       _addPoint(lat, lng);
                     },
                     child: const Text(
@@ -177,8 +177,8 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
-                  final lat = double.parse(_latitudeController.text);
-                  final lng = double.parse(_longitudeController.text);
+                  final lat = double.parse(_latitudeController!.text);
+                  final lng = double.parse(_longitudeController!.text);
                   _addNestedPoint(lat, lng);
                 },
               )
@@ -194,14 +194,14 @@ class _MyAppState extends State<MyApp> {
       _mapController = controller;
 //      _showHome();
       //start listening after map is created
-      stream.listen((List<DocumentSnapshot> documentList) {
+      stream!.listen((List<DocumentSnapshot> documentList) {
         _updateMarkers(documentList);
       });
     });
   }
 
   void _showHome() {
-    _mapController.animateCamera(CameraUpdate.newCameraPosition(
+    _mapController?.animateCamera(CameraUpdate.newCameraPosition(
       const CameraPosition(
         target: LatLng(12.960632, 77.641603),
         zoom: 15.0,
@@ -210,7 +210,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _addPoint(double lat, double lng) {
-    GeoFirePoint geoFirePoint = geo.point(latitude: lat, longitude: lng);
+    GeoFirePoint geoFirePoint = geo!.point(latitude: lat, longitude: lng);
     _firestore
         .collection('locations')
         .add({'name': 'random name', 'position': geoFirePoint.data}).then((_) {
@@ -220,7 +220,7 @@ class _MyAppState extends State<MyApp> {
 
   //example to add geoFirePoint inside nested object
   void _addNestedPoint(double lat, double lng) {
-    GeoFirePoint geoFirePoint = geo.point(latitude: lat, longitude: lng);
+    GeoFirePoint geoFirePoint = geo!.point(latitude: lat, longitude: lng);
     _firestore.collection('nestedLocations').add({
       'name': 'random name',
       'address': {
@@ -246,7 +246,7 @@ class _MyAppState extends State<MyApp> {
 
   void _updateMarkers(List<DocumentSnapshot> documentList) {
     documentList.forEach((DocumentSnapshot document) {
-      Map<String, dynamic> snapData = document.data();
+      Map<String, dynamic> snapData = document.data() as Map<String, dynamic>;
       final GeoPoint point = snapData['position']['geopoint'];
       _addMarker(point.latitude, point.longitude);
     });
