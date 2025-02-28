@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:geoflutterfire2/geoflutterfire2.dart';
+import 'package:geoflutterfire3/geoflutterfire3.dart';
 import 'package:rxdart/rxdart.dart';
 
 class StreamTestWidget extends StatefulWidget {
