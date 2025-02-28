@@ -1,3 +1,4 @@
+
 # Miscellaneous
 *.class
 *.lock
@@ -10,14 +11,17 @@
 .history
 .svn/
 
+
 # IntelliJ related
 *.iml
 *.ipr
 *.iws
 .idea/
 
+
 # Visual Studio Code related
 .vscode/
+
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -29,6 +33,7 @@
 .pub/
 build/
 
+
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
@@ -37,6 +42,7 @@ build/
 **/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
+
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
@@ -64,6 +70,7 @@ build/
 **/ios/Flutter/flutter_assets/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
