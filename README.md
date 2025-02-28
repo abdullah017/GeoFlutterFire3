@@ -227,3 +227,4 @@ radius.add(25);
 ### Acknowledgements  
 **NB! `GeoFlutterFire2` is a revisited and updated version of [GeoFlutterFire](https://github.com/DarshanGowda0/GeoFlutterFire)**  
 The work originates from [GeoFlutterFire](https://github.com/DarshanGowda0/GeoFlutterFire) by Darshan Narayanaswamy 
+# GeoFlutterFire2
