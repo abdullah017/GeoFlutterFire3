@@ -1,5 +1,5 @@
 name: geoflutterfire_example
-description: Demonstrates how to use the Geoflutterfire2 plugin.
+description: Demonstrates how to use the Geoflutterfire3 plugin.
 publish_to: "none"
 
 environment:
@@ -17,7 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  geoflutterfire2:
+  geoflutterfire3:
     path: ../
 
   cloud_firestore: ^4.4.4

@@ -1,6 +1,6 @@
-# GeoFlutterFire2 :earth_africa:
+# GeoFlutterFire3 :earth_africa:
 
-**NB! `GeoFlutterFire2` is the revisited & updated version of [GeoFlutterFire](https://github.com/DarshanGowda0/GeoFlutterFire)**  
+**NB! `GeoFlutterFire3` is the revisited & updated version of [GeoFlutterFire3](https://github.com/beerstorm-net/GeoFlutterFire2)**  
 
 GeoFlutterFire is an open-source library that allows you to store and query a set of keys based on their geographic location. At its heart, GeoFlutterFire simply stores locations with string keys. Its main benefit, however, is the possibility of retrieving only those keys within a given geographic area - all in realtime.
 
@@ -19,15 +19,15 @@ You should ensure that you add GeoFlutterFire as a dependency in your flutter pr
 
 ```yaml
 dependencies:
-  geoflutterfire2: <latest-version>
+  geoflutterfire3: <latest-version>
 ```
 
 You can also reference the git repo directly if you want:
 
 ```yaml
 dependencies:
-  geoflutterfire2:
-    git: git://github.com/beerstorm-net/GeoFlutterFire2.git
+  geoflutterfire3:
+    git: https://github.com/KumaloWilson/GeoFlutterFire3
 ```
 
 You should then run `flutter pub get` or update your packages in IntelliJ.
@@ -41,7 +41,7 @@ There is a detailed example project in the `example` folder. Check that out or k
 You need a firebase project with [Firestore](https://pub.dartlang.org/packages/cloud_firestore) setup.
 
 ```
-import 'package:geoflutterfire2/geoflutterfire2.dart';
+import 'package:geoflutterfire3/geoflutterfire3.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Init firestore and geoFlutterFire
@@ -225,6 +225,6 @@ radius.add(25);
 - `limit()` and `orderBy()` are not supported at the moment. `limit()` could be used to limit docs inside each hash individually which would result in running limit on all 9 hashes inside the specified radius. `orderBy()` is first run on `geohashes` in the library, hence appending `orderBy()` with another feild wouldn't produce expected results. Alternatively documents can be sorted on client side.
 
 ### Acknowledgements  
-**NB! `GeoFlutterFire2` is a revisited and updated version of [GeoFlutterFire](https://github.com/DarshanGowda0/GeoFlutterFire)**  
+**NB! `GeoFlutterFire3` is a revisited and updated version of [GeoFlutterFire](https://github.com/DarshanGowda0/GeoFlutterFire)**  
 The work originates from [GeoFlutterFire](https://github.com/DarshanGowda0/GeoFlutterFire) by Darshan Narayanaswamy 
-# GeoFlutterFire2
+# GeoFlutterFire3
