@@ -195,15 +195,16 @@ class GeoFireCollectionRef {
 
   Stream<List<DistanceDocSnapshot>> mergeObservable(
       Iterable<Stream<List<DistanceDocSnapshot>>> queries) {
-    Stream<List<DistanceDocSnapshot>> mergedObservable = Rx.combineLatest(
-        queries, (List<List<DistanceDocSnapshot>> originalList) {
+    if (queries.isEmpty) return Stream.value(<DistanceDocSnapshot>[]);
+
+    return Rx.combineLatest(queries,
+        (List<List<DistanceDocSnapshot>> originalList) {
       final reducedList = <DistanceDocSnapshot>[];
       originalList.forEach((t) {
         reducedList.addAll(t);
       });
       return reducedList;
     });
-    return mergedObservable;
   }
 
   /// INTERNAL FUNCTIONS
